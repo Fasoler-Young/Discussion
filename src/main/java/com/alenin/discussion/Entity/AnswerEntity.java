@@ -1,7 +1,11 @@
 package com.alenin.discussion.Entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Objects;
 
@@ -17,9 +21,11 @@ public class AnswerEntity {
     @Column(name = "id", nullable = false)
     private Integer id;
     @Basic
+    @NotNull
     @Column(name = "thesis", nullable = false)
     private Integer thesis;
     @Basic
+    @NotNull
     @Column(name = "confidence", nullable = false)
     private Float confidence;
 

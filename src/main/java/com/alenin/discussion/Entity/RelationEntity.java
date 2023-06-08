@@ -1,6 +1,7 @@
 package com.alenin.discussion.Entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,15 +18,19 @@ import java.util.Objects;
 public class RelationEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @NotNull
     @Column(name = "id", nullable = false)
     private Integer id;
     @Basic
+    @NotNull
     @Column(name = "thesis", nullable = false)
     private Integer thesis;
     @Basic
+    @NotNull
     @Column(name = "argument", nullable = false)
     private Integer argument;
     @Basic
+    @NotNull
     @Column(name = "influence", nullable = false)
     private Float influence;
 

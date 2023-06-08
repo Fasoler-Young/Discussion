@@ -1,6 +1,8 @@
 package com.alenin.discussion.Entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,14 +19,19 @@ import java.util.Objects;
 public class QuestionEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @NotNull
     @Column(name = "id", nullable = false)
     private Integer id;
     @Basic
+    @NotNull
+    @Size(min = 7, max = 30, message = "The question must contain from 7 to 30 characters")
     @Column(name = "title", nullable = false, length = 30)
     private String title;
     @Basic
+    @Size(max = 300, message = "The comment must contain up to 300 characters")
     @Column(name = "comment", length = 300)
     private String comment;
+
 
     @Override
     public boolean equals(Object o) {
